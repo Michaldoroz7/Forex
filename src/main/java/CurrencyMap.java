@@ -1,22 +1,29 @@
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.IOException;
-import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.*;
 
 public class CurrencyMap {
-    static String currencies(String curr) throws IOException {
+    static Object currencies(String currency) throws IOException {
 
+        ObjectMapper objectMapper = new ObjectMapper();
         CurrencyDownloader currencyDownloader = new CurrencyDownloader();
-        Map<String, Object> selectedCurrency = currencyDownloader.json(curr);
+        Map<String, Object> selectedCurrency = currencyDownloader.json(currency);
 
-        String mapAsString = selectedCurrency.keySet().stream()
-                .map(key -> key + "=" + selectedCurrency.get(key))
-                .collect(Collectors.joining(", ", "{", "}"));
 
-        int beginIndex = mapAsString.length() - 9;
-        int lastIndex = mapAsString.length() - 3;
+        LinkedHashMap<String, Object> rates = objectMapper.convertValue(selectedCurrency, LinkedHashMap.class);
 
-        String result = mapAsString.substring(beginIndex, lastIndex);
+        Object ratesObject = rates.get("rates");
 
-        return result;
+        List<String> dupsko = objectMapper.convertValue(ratesObject, List.class);
+
+        Object ratesArray = dupsko.get(0);
+
+        Map<String, Object> ratesMap = objectMapper.convertValue(ratesArray, Map.class);
+
+        Object midRatio = ratesMap.get("mid");
+
+        return midRatio;
     }
+
 }

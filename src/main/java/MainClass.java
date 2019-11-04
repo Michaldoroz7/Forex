@@ -5,14 +5,13 @@ public class MainClass {
     public static void main(String[] args) throws IOException {
         Scanner input = new Scanner(System.in);
 
-        CurrencyDownloader currenyDownloader = new CurrencyDownloader();
-
+        CurrencyDownloader currencyDownloader = new CurrencyDownloader();
         System.out.print("Enter your budget ");
         int budget = input.nextInt();
         System.out.print("Which currency you want?(USD, GBP, CHF, RUB) ");
-        String curr = input.next();
+        String currency = input.next();
 
-        System.out.print("Your budget in " + curr + " is " + BudgetInSelectedCurrency.calculateCurr(budget, curr));
+        System.out.print("Your budget in " + currency + " is " + BudgetInSelectedCurrency.calculateCurrency(budget, currency));
 
     }
 }

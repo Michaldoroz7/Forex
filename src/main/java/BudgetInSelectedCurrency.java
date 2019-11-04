@@ -1,12 +1,15 @@
+import javax.print.DocFlavor;
 import java.io.IOException;
 
 public class BudgetInSelectedCurrency {
-    static int calculateCurr(int budget, String curr) throws IOException {
-        String currInString = CurrencyMap.currencies(curr);
+    static int calculateCurrency(int budget, String currency) throws IOException {
+        Object midRatioObject = CurrencyMap.currencies(currency);
 
-        Double currInDouble = Double.parseDouble(currInString);
+        String midRatioString = midRatioObject.toString();
 
-        double result = budget / currInDouble;
+        Double midRatioDouble = Double.valueOf(midRatioString);
+
+        double result = budget / midRatioDouble;
 
         Long longResult = Math.round(result);
 
