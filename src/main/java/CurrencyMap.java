@@ -1,5 +1,4 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.IOException;
 import java.util.*;
 
@@ -15,9 +14,9 @@ public class CurrencyMap {
 
         Object ratesObject = rates.get("rates");
 
-        List<String> dupsko = objectMapper.convertValue(ratesObject, List.class);
+        List<String> ratesList = objectMapper.convertValue(ratesObject, List.class);
 
-        Object ratesArray = dupsko.get(0);
+        Object ratesArray = ratesList.get(0);
 
         Map<String, Object> ratesMap = objectMapper.convertValue(ratesArray, Map.class);
 

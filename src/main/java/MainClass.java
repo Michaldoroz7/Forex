@@ -5,7 +5,6 @@ public class MainClass {
     public static void main(String[] args) throws IOException {
         Scanner input = new Scanner(System.in);
 
-        CurrencyDownloader currencyDownloader = new CurrencyDownloader();
         System.out.print("Enter your budget ");
         int budget = input.nextInt();
         System.out.print("Which currency you want?(USD, GBP, CHF, RUB) ");
