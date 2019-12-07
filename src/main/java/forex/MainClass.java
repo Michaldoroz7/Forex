@@ -15,7 +15,7 @@ public class MainClass {
         System.out.print("Which currency you want?(USD, GBP, CHF, RUB) ");
         String currency = input.next();
 
-        System.out.print("Your budget in " + currency + " is " + BudgetInSelectedCurrency.calculateCurrency(budget, currency));
+        System.out.print("Your budget in " + currency + " is " + budgetInSelectedCurrency.calculatedCurrency(budget, currency));
 
     }
 }

@@ -6,10 +6,10 @@ import java.util.List;
 
 public class FileLoader {
 
-    public String table;
-    public String currency;
-    public String code;
-    public List<LinkedHashMap<String, Object>> rates;
+    private String table;
+    private String currency;
+    private String code;
+    private List<LinkedHashMap<String, Object>> rates;
 
     public FileLoader() {
     }

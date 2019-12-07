@@ -2,12 +2,18 @@ package forex;
 
 import java.io.IOException;
 
-public class BudgetInSelectedCurrency {
+class BudgetInSelectedCurrency implements ComputedCurrency {
 
-    static int calculateCurrency(int budget, String currency) throws IOException {
+    public double calculatedCurrency(int budget, String currency) throws IOException {
 
-        FileDownloader fileDownloader = new FileDownloader();
-        Object midRatioObject = fileDownloader.json(currency);
+        double result = ComputeCurrency(budget, currency);
+        return result;
+    }
+
+    @Override
+    public double ComputeCurrency(int budget, String currency) throws IOException {
+
+        Object midRatioObject = CurrencyLoader.currencyGetter(currency);
         String midRatioString = midRatioObject.toString();
         Double midRatioDouble = Double.valueOf(midRatioString);
 
