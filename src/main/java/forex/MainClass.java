@@ -7,7 +7,7 @@ public class MainClass {
     public static void main(String[] args) throws IOException {
 
         ComputedCurrency selectedCurrencyFromPLN = new SelectedCurrencyFromPLN();
-        SelectedCurrencyFromAnotherCurrencies selectedCurrencyFromAnotherCurrencies = new SelectedCurrencyFromAnotherCurrencies();
+        SelectedCurrencyFromAnotherTypes selectedCurrencyFromAnotherTypes = new SelectedCurrencyFromAnotherTypes();
 
         Scanner input = new Scanner(System.in);
         System.out.print("In which currency you have your budget? (PLN, GBP, EUR) ");
@@ -20,9 +20,9 @@ public class MainClass {
         if(budgetCurrency.equals("PLN")) {
             System.out.print("Your budget in " + budgetCurrency + " is " + selectedCurrencyFromPLN.ComputeCurrency(budget, wantedCurrency, budgetCurrency));
         } else if(budgetCurrency.equals("EUR")) {
-            System.out.print("Your budget in " + wantedCurrency + " is " + selectedCurrencyFromAnotherCurrencies.ComputeCurrency(budget, wantedCurrency, budgetCurrency));
+            System.out.print("Your budget in " + wantedCurrency + " is " + selectedCurrencyFromAnotherTypes.ComputeCurrency(budget, wantedCurrency, budgetCurrency));
         } else if(budgetCurrency.equals("GBP")) {
-            System.out.print("Your budget in " + wantedCurrency + " is " + selectedCurrencyFromAnotherCurrencies.ComputeCurrency(budget, wantedCurrency, budgetCurrency));
+            System.out.print("Your budget in " + wantedCurrency + " is " + selectedCurrencyFromAnotherTypes.ComputeCurrency(budget, wantedCurrency, budgetCurrency));
         }
     }
 }

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-class SelectedCurrencyFromAnotherCurrencies implements ComputedCurrency {
+public class SelectedCurrencyFromAnotherTypes implements ComputedCurrency {
 
     @Override
     public double ComputeCurrency(int budget, String wantedCurrency, String budgetCurrency) {
